@@ -12,23 +12,22 @@ interface State {
 }
 
 class Rating extends Component<Props, State> {
+
   constructor(props: Props) {
     super(props);
-    this.state = {
-      ratingBtnArr: [],
-      givenRating: ''
-    };
-    this.renderRatings = this.renderRatings.bind(this);
+    this.state = { ratingBtnArr: [], givenRating: '' };
   }
+
   componentDidMount() {
     this.renderRatings();
   }
-  // e: React.ChangeEvent<HTMLInputElement>
+
   handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v: string = e.target.value;
     this.props.onRating(v);
     this.setState({ givenRating: v }, () => this.renderRatings());
   };
+
   renderRatings = () => {
     const scale = Number(this.props.rscale);
     const givenRating = Number(this.state.givenRating);
@@ -42,7 +41,7 @@ class Rating extends Component<Props, State> {
           <input
             type="radio"
             value={v}
-            name="rad"
+            name="rating-group"
             checked={c}
             onChange={this.handleOptionChange}
           />
@@ -68,13 +67,3 @@ class Rating extends Component<Props, State> {
 }
 
 export default Rating;
-/*
-<div className="custom-card shadow-sm bg-white mb-5 rounded mx-auto">
-        <h6>Rate your experience</h6>
-        <div>{ratingBtnArr}</div>
-        <div className="d-flex justify-content-center">
-          <div className="col">NOT SATISFIED</div>
-          <div className="col">VERY SATISFIED</div>
-        </div>
-      </div>
-*/
