@@ -1,0 +1,137 @@
+// variables
+$dark:#333;
+$white: #fff;
+$border: 1px solid gray;
+$text-color: #575757;
+
+body {
+  background: linear-gradient(#3e90f6, #146de1) no-repeat;
+  min-height: 100vh;
+}
+
+// generic
+.emoji {
+  font-size: 2.5rem;
+}
+
+.tell-us-more-text {
+  font-weight: bold;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+// common alert box
+.rt-alert-box {
+  position: fixed;
+  bottom: 10px;
+}
+
+// alert animation
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+// emoji-box
+#emoji-box {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: $white;
+  background-color: $dark;
+  border-radius: 2rem;
+  cursor: pointer;
+  width: 56px;
+  height: 60px;
+  overflow: hidden;
+  transition: width 1s;
+
+  &:hover {
+    width: 18%;
+  }
+
+  .emoji {
+    float: left;
+  }
+
+  .help-us {
+    position: relative;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    font-weight: 500;
+    width: 0;
+    padding-left: 10px;
+    transition: width 1s;
+  }
+
+  .emoji+.help-us {
+    width: auto;
+  }
+}
+
+// rating-box
+#rating-box {
+  label {
+    cursor: pointer;
+  }
+
+  & span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    font-size: 16px;
+    color: $text-color;
+    border-top: $border;
+    border-bottom: $border;
+    border-right: $border;
+
+    &:hover {
+      background: #ccc;
+    }
+  }
+
+  & label:first-child span {
+    border-left: $border;
+    border-top-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+  }
+
+  & label:last-child span {
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+  }
+
+  & input[type='radio'] {
+    display: none;
+
+    &:checked~span {
+      background: $text-color;
+      color: $white;
+    }
+  }
+
+  .col {
+    font-size: 10px;
+  }
+
+  .close_icon {
+    cursor: pointer;
+  }
+}
