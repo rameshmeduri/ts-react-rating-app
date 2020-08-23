@@ -19,7 +19,6 @@ class Rating extends Component<Props, State> {
       givenRating: ''
     };
     this.renderRatings = this.renderRatings.bind(this);
-
   }
   componentDidMount() {
     this.renderRatings();
@@ -29,7 +28,7 @@ class Rating extends Component<Props, State> {
     const v: string = e.target.value;
     this.props.onRating(v);
     this.setState({ givenRating: v }, () => this.renderRatings());
-  }
+  };
   renderRatings = () => {
     const scale = Number(this.props.rscale);
     const givenRating = Number(this.state.givenRating);
@@ -37,7 +36,7 @@ class Rating extends Component<Props, State> {
     let i, v, c;
     for (i = 0; i < scale; i++) {
       v = i + 1;
-      c = (givenRating === v);
+      c = givenRating === v;
       ratingBtnArr.push(
         <label key={i}>
           <input
@@ -52,7 +51,7 @@ class Rating extends Component<Props, State> {
       );
     }
     this.setState({ ratingBtnArr: ratingBtnArr });
-  }
+  };
   render() {
     const { ratingBtnArr } = this.state;
     return (

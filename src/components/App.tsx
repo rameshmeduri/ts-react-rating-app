@@ -96,7 +96,9 @@ const App = () => {
             setTellUsMore(false);
             setEmoji(true);
           }}>
-          <Alert.Heading className="p-3 mb-2 bg-dark text-white rounded">How's it going?!</Alert.Heading>
+          <Alert.Heading className="p-3 mb-2 bg-dark text-white rounded">
+            How's it going?!
+          </Alert.Heading>
           <Form>
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>what did you like most?</Form.Label>
